@@ -1,0 +1,175 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "cppbpconfigsaleorgxref",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.34.0",
+      "toolsId": "3304e607-c54a-49e7-b310-66c499d91d6e"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/cpp/ui_bpconfigsalexre_o4/srvd/cpp/ui_bpconfigsalexre_o4/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "cppbpconfigsaleorgxref-maintain": {
+          "semanticObject": "cppbpconfigsaleorgxref",
+          "action": "maintain",
+          "title": "{{cppbpconfigsaleorgxref-maintain.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "cppbpconfigsaleorgxref.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": "BpConfigSaleRoleAll({key}):?query:",
+          "name": "BpConfigSaleRoleAllObjectPage",
+          "target": "BpConfigSaleRoleAllObjectPage"
+        },
+        {
+          "pattern": "BpConfigSaleRoleAll({key})/_BpConfigSaleRole({key2}):?query:",
+          "name": "BpConfigSaleRoleObjectPage",
+          "target": "BpConfigSaleRoleObjectPage"
+        }
+      ],
+      "targets": {
+        "BpConfigSaleRoleAllObjectPage": {
+          "type": "Component",
+          "id": "BpConfigSaleRoleAllObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/BpConfigSaleRoleAll",
+              "navigation": {
+                "_BpConfigSaleRole": {
+                  "detail": {
+                    "route": "BpConfigSaleRoleObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "_BpConfigSaleRole/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "enableExport": true,
+                    "enableFullScreen": true,
+                    "selectAll": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "BpConfigSaleRoleObjectPage": {
+          "type": "Component",
+          "id": "BpConfigSaleRoleObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/BpConfigSaleRoleAll/_BpConfigSaleRole"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "cppbpconfigsaleorgxref"
+  }
+}
